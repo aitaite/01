@@ -1,0 +1,80 @@
+import os
+import time
+from selenium import webdriver
+from selenium.webdriver import ActionChains
+from selenium.webdriver.common.keys import Keys
+
+
+path='C:/Users/Administrator/Desktop/now/testIMG'
+imgname=[]
+filenamelistwith=os.listdir(path)
+for i in filenamelistwith:
+name=os.path.splitext(i)[0]
+imgname.append(name)
+
+browser=webdriver.Chrome('C:/Program Files/Google/Chrome/Application/chromedriver.exe')
+url='https://admin.ctxzgm.com/#/login?redirect=%2F'
+browser.get(url)
+browser.maximize_window()
+time.sleep(2)
+browser.find_element_by_xpath('/html/body/div/div[2]/div/form/div[3]/div/div/input').send_keys('13708348139')
+browser.find_element_by_xpath('/html/body/div/div[2]/div/form/div[4]/div/div/input').send_keys('123456')
+browser.find_element_by_xpath('/html/body/div/div[2]/div/form/button').click()
+time.sleep(2)
+browser.find_element_by_xpath('/html/body/div/div/div[1]/div[1]/div/ul/li[2]/li/div').click()
+time.sleep(1)
+browser.find_element_by_xpath('/html/body/div/div/div[1]/div[1]/div/ul/li[2]/li/ul/div[1]/a/ul/li').click()
+time.sleep(1)
+browser.find_element_by_xpath('//*[@id="formH"]/div[2]/div/div/input').send_keys(imgname[0])
+browser.find_element_by_xpath('/html/body/div[1]/div/div[2]/section/div/section[1]/div/div[2]/button[2]').click()
+
+#browser.find_element_by_xpath('/html/body/div[1]/div/div[2]/section/div/section[2]/div[1]/div[3]/table/tbody/tr/td[4]/div/a/span').click()
+
+# browser.find_element_by_xpath('/html/body/div[1]/div/div[2]/section/div/section[2]/div[1]/div[3]/table/tbody/tr/td[10]/div/div/button').click()
+# browser.find_element_by_xpath('//*[@id="dropdown-menu-7502"]/li[1]').click()
+
+# WebElement avatarElement = driver.findElement(By.xpath("//*[@id=\"csdn-toolbar\"]/div/div/ul/li[4]/div[1]/a"));
+# Actions actions = new Actions(driver);
+# actions.moveToElement(avatarElement).perform();
+# Thread.sleep(1000);
+# driver.findElement(By.xpath("//*[@id=\"csdn-toolbar\"]/div/div/ul/li[4]/div[2]/div[1]/div[3]/a")).click()
+move1=browser.find_element_by_xpath('/html/body/div[1]/div/div[2]/section/div/section[2]/div[1]/div[3]/table/tbody/tr/td[10]/div/div/button/span/i')
+ActionChains(browser).move_to_element(move1).perform()
+move1.click()
+time.sleep(0.5)
+browser.find_element_by_xpath('/html/body/ul/li[1]').click()
+time.sleep(2)
+
+move2=browser.find_element_by_xpath('/html/body/div[1]/div/div[2]/section/div/form/div[6]/div/div[1]/div/div[1]/ul/li/span')
+ActionChains(browser).move_to_element(move2).perform()
+move2.click()
+time.sleep(0.5)
+browser.find_element_by_xpath('/html/body/div[1]/div/div[2]/section/div/form/div[6]/div/div[1]/div/div[1]/ul/li/span/span[2]/i').click()
+# time.sleep(1)
+#browser.find_element_by_xpath('/html/body/div[1]/div/div[2]/section/div/form/div[6]/div/div[1]/div/div[1]/div').click()
+#browser.find_element_by_xpath('/html/body/div[1]/div/div[2]/section/div/form/div[6]/div/div[1]/div/div[1]/div').send_keys('C:/Users/Administrator/Desktop/now/testIMG/麻辣萝卜干52g.jpg')
+
+browser.find_element_by_xpath('/html/body/div[1]/div/div[2]/section/div/form/div[6]/div/div[1]/div/div[1]/div/input').send_keys('C:/Users/Administrator/Desktop/now/testIMG/麻辣萝卜干52g.jpg')
+browser.find_element_by_xpath('/html/body/div[1]/div/div[2]/section/div/form/div[7]/div/div[1]/div/div[1]/div/input').send_keys('C:/Users/Administrator/Desktop/now/testIMG/麻辣萝卜干52g.jpg')
+time.sleep(0.5)
+
+move3=browser.find_element_by_xpath('/html/body/div[1]/div/div[2]/section/div/form/div[11]/div/table/tbody/tr/td[2]/div/div/div[1]/ul/li/span')
+ActionChains(browser).move_to_element(move3).perform()
+move3.click()
+time.sleep(0.5)
+browser.find_element_by_xpath('/html/body/div[1]/div/div[2]/section/div/form/div[11]/div/table/tbody/tr/td[2]/div/div/div[1]/ul/li/span/span[2]/i').click()
+browser.find_element_by_xpath('/html/body/div[1]/div/div[2]/section/div/form/div[11]/div/table/tbody/tr/td[2]/div/div/div[1]/div/input').send_keys('C:/Users/Administrator/Desktop/now/testIMG/麻辣萝卜干52g.jpg')
+browser.find_element_by_xpath('/html/body/div[1]/div/div[2]/section/div/form/div[12]/div/div[2]/div[2]/div[1]/p').send_keys(' ')
+time.sleep(3)
+browser.find_element_by_xpath('/html/body/div[1]/div/div[2]/section/div/div/button[2]').click()
+time.sleep(1)
+# browser.switch_to_default_content()
+# browser.find_element_by_id('/html/body/div[4]/div/div[3]/button[2]').click()
+# Keys.ENTER
+# WebElement.sendKeys(Keys.ENTER)
+# browser.send_keys(Keys.ENTER)
+browser.findElement(By.id('el-button el-button--default el-button--small el-button--primary ')).click()
+
+
+# time.sleep(5)
+# browser.quit()
